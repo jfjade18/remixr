@@ -1,3 +1,4 @@
+require 'active_support/core_ext/string'
 module Remixr
   class Client
     include HTTParty

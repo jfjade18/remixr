@@ -4,7 +4,7 @@ class ClientTest < Test::Unit::TestCase
   include Remixr
   
   context "Searching for stores" do
-    setup { @client = Remixr::Client.new('OU812') }
+    setup { @client = Remixr::Client.new('OU812') } 
     
     should "find all stores" do
       stub_get '/stores?apiKey=OU812&format=json', 'stores.json'
