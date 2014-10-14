@@ -77,7 +77,7 @@ module Remixr
       @api_path = URI.escape(@api_path)
       response = self.class.get("/" + @api_path, :query => opts)
       @api_path = ''
-      Mash.new response
+      Hashie::Mash.new response
     end
     
     private
@@ -100,7 +100,7 @@ module Remixr
       def filter_params_string(filters)
         return "" unless filters.is_a?(Hash)
         
-        filters = Mash.new filters.to_hash # calling Mash.new on a mash is bad mmmm k?
+        filters = Hashie::Mash.new filters.to_hash # calling Hashie::Mash.new on a mash is bad mmmm k?
         params = []
         filters.each do |key, value|
           if value.is_a?(Hash)
