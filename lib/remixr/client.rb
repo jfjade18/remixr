@@ -134,7 +134,7 @@ module Remixr
       end
       
       def scrub_options(options)
-        options = Mash.new(options.to_hash)
+        options = Hashie::Mash.new(options.to_hash)
         show = options.delete('show')
         unless show.blank?
           if show.is_a?(String)
