@@ -62,6 +62,18 @@ module Remixr
       self
     end
     
+    # Example filters:
+    # Products in Gift Center
+    #   categories({:name => "Gift Center"})
+    #   GET /v1/categorie(name=”Gift Center”)
+    def categories(filters={})
+      unless @api_path.include?('categories()')
+        @api_path += '+' unless @api_path.blank?
+        @api_path += "categories()"
+      end
+      @category_filters.merge!(filters)
+      self
+    end
     
     # Executes the search
     # Possible options:
